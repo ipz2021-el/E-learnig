@@ -1,4 +1,32 @@
-<div class="main-container">
+<div class="login-wrapper" *ngIf="!logged">
+  <form class="login">
+    <section class="title">
+      <h3 class="welcome">Najlepsza na świecie</h3>
+      Platforma E-learning
+      <h5 class="hint">Użyj swojego numeru identyfikacyjnego i hasła by się zalogować</h5>
+    </section>
+    <div class="login-group">
+      <clr-input-container>
+        <label class="clr-sr-only">Identyfikator</label>
+        <input type="text" name="username" clrInput placeholder="Identyfikator" />
+      </clr-input-container>
+      <clr-password-container>
+        <label class="clr-sr-only">Hasło</label>
+        <input type="password" name="password" clrPassword placeholder="Hasło" />
+      </clr-password-container>
+      <clr-checkbox-wrapper>
+        <label>Zapamiętaj mnie</label>
+        <input type="checkbox" name="rememberMe" clrCheckbox />
+      </clr-checkbox-wrapper>
+      <!-- <div class="error active">
+        Invalid user name or password
+      </div> -->
+      <button (click)="logged = true" class="btn btn-primary">ZALOGUJ</button>
+    </div>
+  </form>
+</div>
+
+<div class="main-container" *ngIf="logged">
   <header class="header header-6">
     <div class="branding">
       <a href="javascript://" class="nav-link">

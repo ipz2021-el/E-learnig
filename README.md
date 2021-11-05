@@ -18,6 +18,12 @@ You can find working demo at link (#tbd)
 Project is created with:
 * Django
 * Angular
+* Clarity UI library
 	
 ## Setup
-Setup information (#tbd)
+### Frontend setup
+To set up local frontend development environment you need installed [NodeJS with npm](https://nodejs.org/en/download/) and (Angular CLI)[https://angular.io/cli].
+* Go the frontend folder `cd elearning-frontend`
+* Install project dependencies `npm install`
+* Start project `npm start`
+* Go to http://localhost:4200/
