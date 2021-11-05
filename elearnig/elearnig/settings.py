@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '&feap4-+@49ya6^2qk1sj8cp2ll)x=-#qq$)l8$bzi!41jia7y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['elearning.tea-it.pl', '46.41.140.79', 'localhost']
 
 
 # Application definition
@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'elearnig.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'eldb',
-        'USER': 'eluser',
+        'NAME': 'ledb',
+        'USER': 'leuser',
         'PASSWORD': 'Z^Ti3LTZkqiD',
 	'HOST': 'localhost',
         'PORT': '',
