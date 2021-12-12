@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import json
+import datetime
 
 with open('/etc/config.json') as config_file:
     config = json.load(config_file)
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_mfa',
+    'rest_auth',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_mfa.middleware.MfaMiddleware',
 ]
 
 ROOT_URLCONF = 'elearnig.urls'
@@ -91,7 +95,7 @@ DATABASES = {
     }
 }
 
-
+AUTH_USER_MODEL = 'userapi.User'
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -132,7 +136,29 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 REST_FRAMEWORK = {
-  'DEFAULT_AUTHENTICATION_CLASSES': (
-      'rest_framework.authentication.TokenAuthentication',
-    )
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication', 
+        'rest_framework.authentication.BasicAuthentication',    
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated' 
+    ],
 }
+
+JWT_AUTH = {
+    # If the secret is wrong, it will raise a jwt.DecodeError telling you as such. You can still get at the payload by setting the JWT_VERIFY to False.
+    'JWT_VERIFY': True,
+
+    # You can turn off expiration time verification by setting JWT_VERIFY_EXPIRATION to False.
+    # If set to False, JWTs will last forever meaning a leaked token could be used by an attacker indefinitely.
+    'JWT_VERIFY_EXPIRATION': True,
+
+    # This is an instance of Python's datetime.timedelta. This will be added to datetime.utcnow() to set the expiration time.
+    # Default is datetime.timedelta(seconds=300)(5 minutes).
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1),
+
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+}
+REST_USE_JWT = True
