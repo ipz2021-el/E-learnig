@@ -43,7 +43,8 @@
   <div class="content-container">
     <nav class="sidenav">
       <section class="sidenav-content">
-        <a class="nav-link nav-icon active">
+        <a class="nav-link nav-icon" [routerLink]="['/dashboard']" [ngClass]="{'active' : nav == 'dashboard'}"
+          (click)="nav = 'dashboard'">
           <cds-icon shape="home"></cds-icon> Przegląd
         </a>
         <section class="nav-group collapsible">
@@ -52,7 +53,9 @@
             Moje kursy
           </label>
           <ul class="nav-list">
-            <li><a class="nav-link">Inżynierski projekt zespołowy 2</a></li>
+            <li><a class="nav-link" [routerLink]="['/course']" [ngClass]="{'active' : nav == 'course'}"
+                (click)="nav = 'course'">Inżynierski projekt
+                zespołowy 2</a></li>
             <li><a class="nav-link">
                 <cds-icon shape="plus-circle"></cds-icon> Dodaj kurs
               </a></li>
@@ -67,7 +70,7 @@
       </section>
     </nav>
     <div class="content-area">
-      ...
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

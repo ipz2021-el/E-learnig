@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'elearning-frontend';
-  logged = false;
+  logged = true;
+  nav = 'dashboard';
 }
