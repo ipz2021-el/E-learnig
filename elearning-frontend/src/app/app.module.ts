@@ -16,6 +16,8 @@ import '@cds/core/alert/register.js';
 import '@cds/core/progress-circle/register.js';
 import '@cds/core/button/register.js';
 import { LessonComponent } from './lesson/lesson.component';
+import { VideoComponent } from './video/video.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon);
 
@@ -24,7 +26,8 @@ ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon);
     AppComponent,
     CourseComponent,
     DashboardComponent,
-    LessonComponent
+    LessonComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon);
     ClarityModule,
     BrowserAnimationsModule,
     CdsModule,
+    YouTubePlayerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
