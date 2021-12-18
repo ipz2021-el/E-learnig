@@ -1,0 +1,30 @@
+.card-row {
+    display: flex;
+}
+
+.card {
+    padding: 20px;
+    margin: 4px;
+}
+
+.small {
+    width: 500px;
+    text-align: center;
+}
+
+.progress-circle {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+}
+
+.progress-circle:after {
+    content: '64%';
+    display: block;
+    position: absolute;
+    top: 75px;
+    left: 75px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #0072a3;
+  }
