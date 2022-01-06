@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from auth.serializers import UserSerializer
 from django.contrib.auth.models import User
-from rest_framework.authtoken.models import Token
 
 from django.shortcuts import render
 from django_otp.plugins.otp_totp.models import TOTPDevice
