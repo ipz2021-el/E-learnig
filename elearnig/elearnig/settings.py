@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django_otp',
     'django_otp.plugins.otp_totp',
     'rest_auth',
-    '.auth'
+    '.authorize',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +82,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'elearnig.wsgi.application'
 
 
-# Database
+# Database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
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 PUSER = config['PUSER']
 PPASSWORD = config['PPASSWORD']
