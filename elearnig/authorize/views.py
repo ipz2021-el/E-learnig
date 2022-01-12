@@ -12,7 +12,7 @@ from django_otp import devices_for_user
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 
-from authorize.models import User
+from authorize.models import elearningUser
 from authorize.serializers import UserSerializer
 from elearnig.permissions import IsLoggedInUserOrAdmin, IsAdminUser
 from rest_framework import status
@@ -20,7 +20,7 @@ from django_otp import devices_for_user
 from django_otp.plugins.otp_totp.models import TOTPDevice
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = elearningUser.objects.all()
     serializer_class = UserSerializer
 
     def get_permissions(self):
