@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
-class User(AbstractUser):
+class elearningUser(AbstractUser):
     username = models.CharField(blank=True, null=True, max_length=50)
     email = models.EmailField(_('email address'), unique=True)
 
@@ -15,5 +15,5 @@ class User(AbstractUser):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
     
