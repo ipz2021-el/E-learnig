@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include, url
+from django.urls import path, include
 from rest_framework_jwt.views import obtain_jwt_token
 from rest_framework_jwt.views import refresh_jwt_token
 from rest_framework_jwt.views import verify_jwt_token
@@ -22,8 +22,8 @@ from rest_framework_jwt.views import verify_jwt_token
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('courses.urls')),
-    url(r'^users/', include('auth.urls')),
-    url(r'^settings/', include('django_mfa.urls', namespace="mfa")),
+    path(r'^users/', include('auth.urls')),
+    path(r'^settings/', include('django_mfa.urls', namespace="mfa")),
     path(r'api-token-auth/', obtain_jwt_token),
     path(r'api-token-refresh/', refresh_jwt_token),
     path(r'api-token-verify/', verify_jwt_token),
