@@ -3,7 +3,7 @@ from rest_framework import views
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from auth.serializers import UserSerializer
+from authorize.serializers import UserSerializer
 from django.contrib.auth.models import User
 
 from django.shortcuts import render
@@ -12,8 +12,8 @@ from django_otp import devices_for_user
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 
-from auth.models import User
-from auth.serializers import UserSerializer
+from authorize.models import User
+from authorize.serializers import UserSerializer
 from elearnig.permissions import IsLoggedInUserOrAdmin, IsAdminUser
 from rest_framework import status
 from django_otp import devices_for_user
