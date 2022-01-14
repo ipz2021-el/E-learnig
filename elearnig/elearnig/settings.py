@@ -42,11 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken',
-    'django_otp',
-    'django_otp.plugins.otp_totp',
-    'django_mfa',
-    'rest_auth',
+    # 'rest_framework.authtoken',
+    # 'django_otp',
+    # 'django_otp.plugins.otp_totp',
+    # 'django_mfa',
+    # 'rest_auth',
     'authorize',
     'django.contrib.admin',
 ]
@@ -98,7 +98,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = 'authorize.elearningUser'
+# AUTH_USER_MODEL = 'authorize.elearningUser'
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
