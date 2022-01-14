@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_auth',
     'authorize',
     'django.contrib.admin',
+    'django.contrib.contenttypes',
 ]
 
 MIDDLEWARE = [
