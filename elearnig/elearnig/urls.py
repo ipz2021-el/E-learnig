@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('courses.urls')),
     path(r'^users/', include('authorize.urls')),
-    path(r'^settings/', include('django_mfa.urls')),
+#    path(r'^settings/', include('django_mfa.urls')),
     path(r'api-token-auth/', obtain_jwt_token),
     path(r'api-token-refresh/', refresh_jwt_token),
     path(r'api-token-verify/', verify_jwt_token),

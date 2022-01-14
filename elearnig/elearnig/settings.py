@@ -36,6 +36,8 @@ ALLOWED_HOSTS = ['elearning.tea-it.pl', '46.41.140.79', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.contenttypes',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -45,11 +47,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_otp',
     'django_otp.plugins.otp_totp',
-    'django_mfa',
+    #'django_mfa',
     'rest_auth',
     'authorize',
-    'django.contrib.admin',
-    'django.contrib.contenttypes',
 ]
 
 MIDDLEWARE = [
