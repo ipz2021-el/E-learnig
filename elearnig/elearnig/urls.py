@@ -27,5 +27,5 @@ urlpatterns = [
     path(r'api-token-auth/', obtain_jwt_token),
     path(r'api-token-refresh/', refresh_jwt_token),
     path(r'api-token-verify/', verify_jwt_token),
-    path(r'', include('django.contrib.auth.urls')),
+    path(r'', include('rest_auth.urls')),
 ]
