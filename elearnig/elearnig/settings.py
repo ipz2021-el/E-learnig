@@ -37,7 +37,6 @@ ALLOWED_HOSTS = ['elearning.tea-it.pl', '46.41.140.79', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.contenttypes',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
