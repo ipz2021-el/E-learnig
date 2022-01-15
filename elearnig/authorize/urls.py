@@ -1,7 +1,7 @@
-from django.conf.urls import url
-from django.urls import path, include, re_path
+from django.urls import path, include
 from . import views
 from rest_framework import routers
+from rest_auth import urls
 from authorize.views import UserViewSet
 
 router = routers.DefaultRouter()
@@ -12,5 +12,5 @@ urlpatterns = [
     path('totp/create/$', views.TOTPCreateView.as_view(), name='totp-create'),
     path('totp/login/(?P<token>[0-9]{6})/$', views.TOTPVerifyView.as_view(), name='totp-login'),
     path('', include(router.urls)),
-    path('auth/', include('rest_auth.urls')),
+    path('auth/', include(urls)),
 ]
