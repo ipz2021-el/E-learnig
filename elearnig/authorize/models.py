@@ -9,15 +9,15 @@ from django.conf import settings
 class elearningUser(AbstractUser):
     username = models.CharField(blank=True, null=True, max_length=50)
     index_number = models.IntegerField(blank=True, null=True, unique=True,max_length=5)
-    first_name = models.CharField()
-    last_name = models.CharField()
+    first_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
     email = models.EmailField(_('email address'), unique=True)
-    street_address = models.CharField()
+    street_address = models.CharField(max_length=150)
     zip_code = models.CharField(max_length=6)
-    city = models.CharField()
+    city = models.CharField(max_length=150)
     phone_number = models.IntegerField()
-    department = models.CharField()
-    university = models.CharField()
+    department = models.CharField(max_length=150)
+    university = models.CharField(max_length=150)
 
 
 
