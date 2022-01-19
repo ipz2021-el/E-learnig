@@ -15,7 +15,7 @@ class elearningUser(AbstractUser):
     street_address = models.CharField(blank=True,max_length=150)
     zip_code = models.CharField(blank=True,max_length=6)
     city = models.CharField(blank=True,max_length=150)
-    phone_number = models.IntegerField()
+    phone_number = models.IntegerField(blank=True)
     department = models.CharField(blank=True,max_length=150)
     university = models.CharField(blank=True,max_length=150)
 
