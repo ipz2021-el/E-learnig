@@ -44,10 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_auth',
     'django_otp',
     'django_otp.plugins.otp_totp',
     #'django_mfa',
-    'rest_auth',
     'authorize',
 ]
 
