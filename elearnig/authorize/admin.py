@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from .models import elearningUser
 
 from .forms import ElearningUserCreationForm, ElearningUserChangeForm
-from .models import ElearningUser
+from .models import elearningUser
 
 class ElearningUserAdmin(UserAdmin):
     add_form = ElearningUserCreationForm
@@ -12,4 +12,4 @@ class ElearningUserAdmin(UserAdmin):
     model = elearningUser
     list_display = ['email', 'username', 'name']
 
-admin.site.register(ElearningUser, ElearningUserAdmin)
+admin.site.register(elearningUser, ElearningUserAdmin)
