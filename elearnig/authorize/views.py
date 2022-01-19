@@ -3,7 +3,6 @@ from rest_framework import views
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from authorize.serializers import UserSerializer
 from django.contrib.auth.models import User
 
 from django.shortcuts import render
@@ -12,26 +11,19 @@ from django_otp import devices_for_user
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 
-from authorize.models import elearningUser
-from authorize.serializers import UserSerializer
 from elearnig.permissions import IsLoggedInUserOrAdmin, IsAdminUser
 from rest_framework import status
 from django_otp import devices_for_user
 from django_otp.plugins.otp_totp.models import TOTPDevice
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = elearningUser.objects.all()
-    serializer_class = UserSerializer
+from rest_framework import generics
 
-    def get_permissions(self):
-        permission_classes = []
-        if self.action == 'create':
-            permission_classes = [AllowAny]
-        elif self.action == 'retrieve' or self.action == 'update' or self.action == 'partial_update':
-            permission_classes = [IsLoggedInUserOrAdmin]
-        elif self.action == 'list' or self.action == 'destroy':
-            permission_classes = [IsAdminUser]
-        return [permission() for permission in permission_classes]
+from . import models
+from . import serializers
+
+class UserListView(generics.ListAPIView):
+    queryset = models.elearningUser.objects.all()
+    serializer_class = serializers.UserSerializer
 
  
 
