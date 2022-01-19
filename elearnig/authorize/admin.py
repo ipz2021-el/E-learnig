@@ -10,6 +10,6 @@ class ElearningUserAdmin(UserAdmin):
     add_form = ElearningUserCreationForm
     form = ElearningUserChangeForm
     model = elearningUser
-    list_display = ['email', 'username', 'name']
+    list_display = ['username', 'first_name', 'last_name', 'index_number']
 
 admin.site.register(elearningUser, ElearningUserAdmin)
