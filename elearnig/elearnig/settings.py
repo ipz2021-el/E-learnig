@@ -163,5 +163,6 @@ JWT_AUTH = {
 
     'JWT_ALLOW_REFRESH': True,
     'JWT_AUTH_HEADER_PREFIX': 'JWT',
+    'JWT_PAYLOAD_HANDLER': 'otp.utils.jwt_otp_payload',
 }
 REST_USE_JWT = True

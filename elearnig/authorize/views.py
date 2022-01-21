@@ -1,25 +1,31 @@
 from rest_framework import permissions
 from rest_framework import views
-from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth.models import User
 
 from django.shortcuts import render
 from django_otp.plugins.otp_totp.models import TOTPDevice
 from django_otp import devices_for_user
-from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
 
-from elearnig.permissions import IsLoggedInUserOrAdmin, IsAdminUser
 from rest_framework import status
 from django_otp import devices_for_user
 from django_otp.plugins.otp_totp.models import TOTPDevice
+from .utils import get_custom_jwt
 
 from rest_framework import generics
-
+import uuid
 from . import models
 from . import serializers
+from django_otp.plugins.otp_static.models import StaticDevice
+
+from django_otp.plugins.otp_static.models import StaticToken
+from . import permissions as otp_permissions
+
+def get_user_static_device(self, user, confirmed=None):
+    devices = devices_for_user(user, confirmed=confirmed)
+    for device in devices:
+        if isinstance(device, StaticDevice):
+            return device
 
 class UserListView(generics.ListAPIView):
     queryset = models.elearningUser.objects.all()
@@ -50,21 +56,63 @@ class TOTPVerifyView(views.APIView):
     """
     Use this endpoint to verify/enable a TOTP device
     """
-    permission_classes = [permissions.IsAuthenticated]    
+    permission_classes = [permissions.IsAuthenticated]
+    
     def post(self, request, token, format=None):
         user = request.user
         device = get_user_totp_device(self, user)
-        if not device:
-            return Response(dict(
-           errors=['This user has not setup two factor authentication']),
-                status=status.HTTP_400_BAD_REQUEST
-            )        
         if not device == None and device.verify_token(token):
             if not device.confirmed:
                 device.confirmed = True
                 device.save()
-                user.is_two_factor_enabled=True
-                user.save()
-            return Response(dict(token=user.token),   status=status.HTTP_200_OK)    
-        return Response(dict(errors=dict(token=['Invalid TOTP Token'])),
-                        status=status.HTTP_400_BAD_REQUEST)
+            token = get_custom_jwt(user, device)
+            return Response({'token': token},  status=status.HTTP_200_OK)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+class StaticCreateView(views.APIView):
+    """
+    Use this endpoint to create static recovery codes.
+    """
+    permission_classes = [permissions.IsAuthenticated, otp_permissions.IsOtpVerified]
+    number_of_static_tokens = 6    
+    def get(self, request, format=None):
+        device = get_user_static_device(self, request.user)
+        if not device:
+            device = StaticDevice.objects.create(user=request.user, name="Static")
+        
+        device.token_set.all().delete()
+        tokens = []
+        for n in range(self.number_of_static_tokens):
+            token = StaticToken.random_token()
+            device.token_set.create(token=token)
+            tokens.append(token.decode('utf-8'))
+            
+        return Response(tokens, status=status.HTTP_201_CREATED)
+
+class StaticVerifyView(views.APIView):
+    """
+    Use this endpoint to verify a static token.
+    """
+    permission_classes = [permissions.IsAuthenticated]    
+    def post(self, request, token, format=None):
+        user = request.user
+        device = get_user_static_device(self, user)
+        if not device == None and device.verify_token(str.encode(token)):
+            token = get_custom_jwt(user, device)
+            return Response({'token': token}, status=status.HTTP_201_CREATED)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+class TOTPDeleteView(views.APIView):
+    """
+    Use this endpoint to delete a TOTP device
+    """
+    permission_classes = [permissions.IsAuthenticated, otp_permissions.IsOtpVerified]    
+    def post(self, request, format=None):
+        user = request.user
+        devices = devices_for_user(user)
+        for device in devices:
+            device.delete()
+        user.jwt_secret = uuid.uuid4()
+        user.save()
+        token = get_custom_jwt(user, None)
+        return Response({'token': token}, status=status.HTTP_200_OK)
