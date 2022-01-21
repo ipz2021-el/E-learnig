@@ -6,6 +6,7 @@ import { CdsModule } from '@cds/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import '@cds/core/icon/register.js';
 import { ClarityIcons, userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon } from '@cds/core/icon';
@@ -18,6 +19,8 @@ import '@cds/core/button/register.js';
 import { LessonComponent } from './lesson/lesson.component';
 import { VideoComponent } from './video/video.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { CoursesComponent } from './courses/courses.component';
+import { AssignmentsComponent } from './assignments/assignments.component';
 
 ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon);
 
@@ -27,7 +30,9 @@ ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon);
     CourseComponent,
     DashboardComponent,
     LessonComponent,
-    VideoComponent
+    VideoComponent,
+    CoursesComponent,
+    AssignmentsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,7 @@ ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon);
     BrowserAnimationsModule,
     CdsModule,
     YouTubePlayerModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

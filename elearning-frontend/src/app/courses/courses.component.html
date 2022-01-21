@@ -1,0 +1,64 @@
+<h1>Przeglądaj dostepne kursy</h1>
+
+<div class="card-row">
+    <div class="card">
+        <cds-search control-width="shrink">
+            <label>Przeszukaj bazę kursów: </label>
+            <input type="text" [(ngModel)]="searchword" (keyup)="search($event)"/>
+        </cds-search>
+    </div>
+</div>
+
+<h2 *ngIf="searchword==''">Polecane dla Ciebie</h2>
+
+<div *ngIf="searchword==''"class="card-row">
+    <div class="card course-card big-card">
+        <img src="../../assets/curriculum.png">
+        <h3>Inżynierski projekt zespołowy 2</h3>
+        <p><b>Prowadzący:</b> <a href="#janko"> Jan Kowalski </a>
+            <cds-icon shape="user"></cds-icon>
+        </p>
+        <p>Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam. Vivamus malesuada ullamcorper erat. Mauris facilisis lacus at sapien commodo fringilla. Etiam ac magna a orci tincidunt tincidunt.</p>
+        <p><b>Tagi: </b> <a href="#inf">#informatyka </a> <a href="#inz">#inżynieria </a> <a href="#proj">#projekt </a></p>
+        <p><cds-button action="outline">Szczegóły kursu</cds-button><br>
+        <cds-button action="outline">Zapisano</cds-button></p>
+    </div>
+    <div class="card course-card big-card">
+        <img src="../../assets/mobile.png">
+        <h3>Systemy Mobilne</h3>
+        <p><b>Prowadzący:</b> <a href="#janko"> Michał Jucewicz </a>
+            <cds-icon shape="user"></cds-icon>
+        </p>
+        <p>Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam. Vivamus malesuada ullamcorper erat. Mauris facilisis lacus at sapien commodo fringilla. Etiam ac magna a orci tincidunt tincidunt.</p>
+        <p><b>Tagi: </b> <a href="#inf">#informatyka </a> <a href="#and">#android </a></p>
+        <p><cds-button action="outline">Szczegóły kursu</cds-button><br>
+        <cds-button >Zapisz się!</cds-button></p>
+    </div>
+    <div class="card course-card big-card">
+        <img src="../../assets/computer.png">
+        <h3>Aplikacje internetowe</h3>
+        <p><b>Prowadzący:</b> <a href="#janko"> Bogusz Bynowski </a>
+            <cds-icon shape="user"></cds-icon>
+        </p>
+        <p>Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam. Vivamus malesuada ullamcorper erat. Połączenie wielu technologii z projektem zespołowym i nieustępliwym prowadzącym.</p>
+        <p><b>Tagi: </b> <a href="#inf">#informatyka </a> <a href="#inz">#aplikacje </a> <a href="#inz">#html </a> </p>
+        <p><cds-button action="outline">Szczegóły kursu</cds-button><br>
+        <cds-button >Zapisz się!</cds-button></p>
+    </div>
+</div>
+
+<h2>Wszystkie kursy</h2>
+<div class="card-row">
+    <div class="card course-card small-card" *ngFor="let course of courses_displayed">
+        <img src="../../assets/{{course.image}}.png">
+        <h3>{{course.title}}</h3>
+        <p><b>Prowadzący:</b> <a href="#janko"> {{course.tutor}} </a>
+            <cds-icon shape="user"></cds-icon>
+        </p>
+        <p>Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam. </p>
+        <br>
+        <cds-button action="outline">Szczegóły kursu</cds-button>
+    </div>
+</div>
+
+<p></p>
