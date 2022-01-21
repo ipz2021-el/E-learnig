@@ -22,4 +22,5 @@ from rest_framework_jwt.views import verify_jwt_token
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('authorize.urls')),
+    path('chat/', include('chat.urls'))
 ]
