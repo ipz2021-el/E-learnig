@@ -8,7 +8,7 @@ from django.conf import settings
 
 class elearningUser(AbstractUser):
     username = models.CharField(blank=True, null=True, max_length=50)
-    index_number = models.IntegerField(blank=True, null=True, unique=True,max_length=5)
+    index_number = models.IntegerField(blank=True, null=True, unique=True)
     first_name = models.CharField(blank=True,max_length=150)
     last_name = models.CharField(blank=True,max_length=150)
     email = models.EmailField(_('email address'), unique=True)
