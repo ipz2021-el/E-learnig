@@ -45,7 +45,7 @@ class Module(models.Model):
         ordering = ['order']
 
     def __str__(self):
-        return f'{self.order}. {self.title}'
+        return '{}. {}'.format(self.order, self.title)
 
 class ItemBase(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, 
