@@ -47,8 +47,8 @@ INSTALLED_APPS = [
     'rest_auth',
     'django_otp',
     'django_otp.plugins.otp_totp',
-    #'django_mfa',
     'authorize',
+    'courses'
 ]
 
 MIDDLEWARE = [
