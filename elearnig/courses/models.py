@@ -1,5 +1,7 @@
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 class Subject(models.Model):
     title = models.CharField(max_length=200)
@@ -12,7 +14,7 @@ class Subject(models.Model):
         return self.title
  
 class Course(models.Model):
-    owner = models.ForeignKey(User, 
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, 
                               related_name='courses_created',
                               on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject,
@@ -40,7 +42,7 @@ class Module(models.Model):
         return self.title
 
 class ItemBase(models.Model):
-    owner = models.ForeignKey(User, 
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, 
                               related_name='%(class)s_related',
                               on_delete=models.CASCADE)
     title = models.CharField(max_length=250)
