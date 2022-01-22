@@ -66,6 +66,10 @@
         (click)="nav = 'assignments'">
           <cds-icon shape="home"></cds-icon> Zadania domowe
         </a>
+        <a class="nav-link nav-icon" [routerLink]="['/chat']" [ngClass]="{'active' : nav == 'chat'}"
+        (click)="nav = 'chat'">
+          <cds-icon shape="envelope"></cds-icon> Wiadomości
+        </a>
         <a class="nav-link">
           <cds-icon shape="user"></cds-icon> Moje konto
         </a>

@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import '@cds/core/icon/register.js';
-import { ClarityIcons, userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon } from '@cds/core/icon';
+import { ClarityIcons, userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon, envelopeIcon } from '@cds/core/icon';
 import { CourseComponent } from './course/course.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -21,8 +21,9 @@ import { VideoComponent } from './video/video.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { CoursesComponent } from './courses/courses.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
+import { ChatComponent } from './chat/chat.component';
 
-ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon);
+ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon, envelopeIcon);
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon);
     LessonComponent,
     VideoComponent,
     CoursesComponent,
-    AssignmentsComponent
+    AssignmentsComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
