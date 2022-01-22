@@ -28,3 +28,18 @@
     font-weight: bold;
     color: #0072a3;
   }
+
+  .course-description {
+      display: flex;
+      align-items: center;
+      .desc {
+          width: 70%;
+      }
+      .img {
+          width: 30%;
+          padding: 5%;
+          img {
+              width: 80%;
+          }
+      }
+  }

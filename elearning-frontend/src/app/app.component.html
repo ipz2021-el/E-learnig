@@ -56,13 +56,19 @@
             <li><a class="nav-link" [routerLink]="['/course']" [ngClass]="{'active' : nav == 'course'}"
                 (click)="nav = 'course'">Inżynierski projekt
                 zespołowy 2</a></li>
-            <li><a class="nav-link">
+            <li><a class="nav-link" [routerLink]="['/courses']" [ngClass]="{'active' : nav == 'courses'}"
+              (click)="nav = 'courses'">
                 <cds-icon shape="plus-circle"></cds-icon> Dodaj kurs
               </a></li>
           </ul>
         </section>
-        <a class="nav-link nav-icon">
+        <a class="nav-link nav-icon" [routerLink]="['/assignments']" [ngClass]="{'active' : nav == 'assignments'}"
+        (click)="nav = 'assignments'">
           <cds-icon shape="home"></cds-icon> Zadania domowe
+        </a>
+        <a class="nav-link nav-icon" [routerLink]="['/chat']" [ngClass]="{'active' : nav == 'chat'}"
+        (click)="nav = 'chat'">
+          <cds-icon shape="envelope"></cds-icon> Wiadomości
         </a>
         <a class="nav-link">
           <cds-icon shape="user"></cds-icon> Moje konto
