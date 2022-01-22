@@ -1,1 +1,61 @@
+.card-row {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.card {
+    padding: 20px;
+}
+
+.course-card {
+    margin-right: 10px;
+    text-align: center;
+    img {
+        width: 50%;
+    }
+}
+
+.course-card:last-child {
+    margin-right: 0;
+}
+
+.big-card {
+    width: 32%
+}
+
+.small-card {
+    width: 19%;
+}
+
+cds-search {
+    width: 100%;
+}
+
+div[cds-layout~="horizontal"] {
+    display: block !important;
+}
+
+.card-assignment {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-content: space-between;
+    align-items: center;
+    img {
+        height: 120px;
+        margin-right: 30px;
+    }
+    
+    .button {
+        margin-left: 30px;
+    }
+    
+    .red {color: red}
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
