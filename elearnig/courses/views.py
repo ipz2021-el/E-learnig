@@ -1,8 +1,6 @@
 import re
 from django.shortcuts import render
 from django.http import HttpResponse
-from flask_login import login_required
-
 from courses.models import Course
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
@@ -18,12 +16,10 @@ def home(request):
 def report(request):
         return HttpResponse('<h1>Reports</h1>')
 
-@login_required
 @api_view(['GET', 'POST', 'DELETE'])
 def courses_list(request):
     pass
 
-@login_required
 @api_view(['GET', 'POST', 'DELETE'])
 def course_detail(request,id):
     course = Course.objects.get(id)
