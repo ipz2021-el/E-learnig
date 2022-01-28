@@ -30,7 +30,7 @@ SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['e-learning.tea-it.pl', '46.41.140.79', 'localhost']
+ALLOWED_HOSTS = ['le.tea-it.pl', '46.41.140.79', 'localhost']
 
 
 # Application definition
