@@ -15,7 +15,7 @@
         </p>
         <p>Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam. </p>
         <p><b>Tagi: </b> <a href="#inf">#informatyka </a> <a href="#inz">#inżynieria </a> <a href="#proj">#projekt </a></p>
-        <p><cds-button>Przejdź do kursu</cds-button><br>
+        <p><cds-button [routerLink]="['/course']">Przejdź do kursu</cds-button><br>
     </div>
     <div class="card course-card big-card centered">
         <h3>Dodaj nowy kurs <cds-icon shape="plus-circle"></cds-icon></h3>
@@ -32,7 +32,7 @@
             Inżynierski projekt zespołowy 2, <span class="red">Termin ukończenia: wczoraj 23:59</span>
         </div>
         <div class="button">
-            <cds-button action="outline">Przejdź do kursu</cds-button>
+            <cds-button action="outline" [routerLink]="['/course']">Przejdź do kursu</cds-button>
         </div>
     </div>
 </div>
