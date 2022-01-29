@@ -2,6 +2,8 @@ from django.conf import settings
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
+from matplotlib.pyplot import cla, title
+from sqlalchemy import ForeignKey
 from .fields import OrderField
 
 class Subject(models.Model):
@@ -85,3 +87,17 @@ class Content(models.Model):
     class Meta:
         ordering = ['order']
     
+class Quiz(models.Model):
+    title = models.CharField()
+    owner = ForeignKey(settings.AUTH_USER_MODEL, 
+                              related_name='quizes_created',
+                              on_delete=models.CASCADE)
+
+class Question(models.Model):
+    quiz = ForeignKey(Quiz,related_name = 'questions',on_delete=models.CASCADE)
+    type = models.CharField()
+    answear = models.CharField()
+
+class Option(models.Model):
+    question = ForeignKey(Question,related_name = 'question_containing',on_delete=models.CASCADE)
+    text = models.CharField()
