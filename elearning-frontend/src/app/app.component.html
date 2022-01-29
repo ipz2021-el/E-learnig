@@ -3,9 +3,10 @@
     <section class="title">
       <h3 class="welcome">Najlepsza na świecie</h3>
       Platforma E-learning
-      <h5 class="hint">Użyj swojego numeru identyfikacyjnego i hasła by się zalogować</h5>
+      <h5 class="hint" *ngIf="logging_step == 'credentials'">Użyj swojego numeru identyfikacyjnego i hasła by się zalogować</h5>
+      <h5 class="hint" *ngIf="logging_step == '2fa'">Zeskanuj poniższy kod QR w aplikacji do dwustopniowej autentykacji np. Google Authenticator, Okta</h5>
     </section>
-    <div class="login-group">
+    <div class="login-group" *ngIf="logging_step == 'credentials'">
       <clr-input-container>
         <label class="clr-sr-only">Identyfikator</label>
         <input type="text" name="username" clrInput placeholder="Identyfikator" />
@@ -21,7 +22,17 @@
       <!-- <div class="error active">
         Invalid user name or password
       </div> -->
-      <button (click)="logged = true" class="btn btn-primary">ZALOGUJ</button>
+      <button (click)="logging_step = '2fa'" class="btn btn-primary">ZALOGUJ</button>
+    </div>
+    <div class="2fa-group login-group" *ngIf="logging_step == '2fa'">
+      <div class="qr-wrapper">
+        <img src="../assets/qr.svg">
+      </div>
+      <clr-input-container>
+        <label class="clr-sr-only">Kod weryfikacyjny</label>
+        <input type="number" name="code" clrInput placeholder="Kod weryfikacyjny" />
+      </clr-input-container>
+      <button (click)="logged = true" class="btn btn-primary">ZWERYFIKUJ</button>
     </div>
   </form>
 </div>
