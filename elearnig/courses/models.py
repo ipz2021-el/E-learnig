@@ -1,3 +1,4 @@
+from enum import unique
 from django.conf import settings
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
@@ -88,15 +89,24 @@ class Content(models.Model):
         ordering = ['order']
     
 class Quiz(models.Model):
-    title = models.CharField()
+    title = models.CharField(max_length=200)
     owner = ForeignKey(settings.AUTH_USER_MODEL, 
                               related_name='quizes_created',
                               on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=200, unique=True)
+    def __str__(self):
+        return self.title
 
 class Question(models.Model):
-    quiz = ForeignKey(Quiz,related_name = 'questions',on_delete=models.CASCADE)
+    id = models.CharField()
+    quiz = ForeignKey(Quiz,
+                    related_name = 'questions',
+                    on_delete=models.CASCADE)
     type = models.CharField()
+    content = models.CharField()
     answear = models.CharField()
+    def __str__(self):
+        return self.id
 
 class Option(models.Model):
     question = ForeignKey(Question,related_name = 'question_containing',on_delete=models.CASCADE)
