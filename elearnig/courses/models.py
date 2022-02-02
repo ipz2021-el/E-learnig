@@ -3,7 +3,6 @@ from django.conf import settings
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
-from sqlalchemy import ForeignKey
 from .fields import OrderField
 
 class Subject(models.Model):
@@ -89,7 +88,7 @@ class Content(models.Model):
     
 class Quiz(models.Model):
     title = models.CharField(max_length=200)
-    owner = ForeignKey(settings.AUTH_USER_MODEL, 
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, 
                               related_name='quizes_created',
                               on_delete=models.CASCADE)
     slug = models.SlugField(max_length=200, unique=True)
@@ -97,16 +96,13 @@ class Quiz(models.Model):
         return self.title
 
 class Question(models.Model):
-    id = models.CharField()
-    quiz = ForeignKey(Quiz,
+    quiz = models.ForeignKey(Quiz,
                     related_name = 'questions',
                     on_delete=models.CASCADE)
-    type = models.CharField()
-    content = models.CharField()
-    answear = models.CharField()
-    def __str__(self):
-        return self.id
+    type = models.CharField(max_length=200)
+    content = models.CharField(max_length=200)
+    answear = models.CharField(max_length=200)
 
 class Option(models.Model):
-    question = ForeignKey(Question,related_name = 'question_containing',on_delete=models.CASCADE)
-    text = models.CharField()
+    question = models.ForeignKey(Question,related_name = 'question_containing',on_delete=models.CASCADE)
+    text = models.CharField(max_length=200)

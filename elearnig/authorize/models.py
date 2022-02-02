@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
 class elearningUser(AbstractUser):
-    TYPES = ('student''teacher')
+    TYPES = [('STUDENT','student'),('TEACHER','teacher')]
     username = models.CharField(blank=True, null=True, max_length=50)
     index_number = models.IntegerField(blank=True, null=True, unique=True)
     first_name = models.CharField(blank=True,max_length=150)
@@ -19,7 +19,7 @@ class elearningUser(AbstractUser):
     phone_number = models.IntegerField(blank=True,null=True)
     department = models.CharField(blank=True,null=True,max_length=150)
     university = models.CharField(blank=True,null=True,max_length=150)
-    type = models.CharField(choices=TYPES)
+    type = models.CharField(choices=TYPES,max_length=7)
 
 
 
