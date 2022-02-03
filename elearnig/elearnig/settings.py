@@ -14,8 +14,8 @@ import os
 import json
 import datetime
 
-with open('/etc/config.json') as config_file:
-    config = json.load(config_file)
+# with open('./elearnig/config.json') as config_file:
+#     config = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config['SECRET_KEY']
+SECRET_KEY = '&feap4-+@49ya6^2qk1sj8cp2ll)x=-#qq$)l8$bzi!41jia7y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,16 +42,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django_otp',
     'django_otp.plugins.otp_totp',
     'authorize',
     'courses',
     'chat',
 ]
-
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -86,8 +90,8 @@ WSGI_APPLICATION = 'elearnig.wsgi.application'
 
 # Database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
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-PUSER = config['PUSER']
-PPASSWORD = config['PPASSWORD']
+# PUSER = config['PUSER']
+# PPASSWORD = config['PPASSWORD']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -96,6 +100,8 @@ DATABASES = {
         # 'NAME': 'ledb',
         # 'USER': PUSER,
         # 'PASSWORD': PPASSWORD,
+        'USER': 'eluser',
+        'PASSWORD': 'Z^Ti3LTZkqiD',
 	'HOST': 'localhost',
         'PORT': '',
     }
