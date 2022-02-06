@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import json
 import datetime
+import string
 
 # with open('./elearnig/config.json') as config_file:
 #     config = json.load(config_file)
@@ -50,8 +51,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django_otp',
-    'django_otp.plugins.otp_totp',
+    'trench',
     'authorize',
     'courses',
     'chat',
@@ -150,7 +150,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication', 
         'rest_framework.authentication.BasicAuthentication',    
     ],
@@ -159,20 +159,27 @@ REST_FRAMEWORK = {
     ],
 }
 
-JWT_AUTH = {
-    # If the secret is wrong, it will raise a jwt.DecodeError telling you as such. You can still get at the payload by setting the JWT_VERIFY to False.
-    'JWT_VERIFY': True,
-
-    # You can turn off expiration time verification by setting JWT_VERIFY_EXPIRATION to False.
-    # If set to False, JWTs will last forever meaning a leaked token could be used by an attacker indefinitely.
-    'JWT_VERIFY_EXPIRATION': True,
-
-    # This is an instance of Python's datetime.timedelta. This will be added to datetime.utcnow() to set the expiration time.
-    # Default is datetime.timedelta(seconds=300)(5 minutes).
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1),
-
-    'JWT_ALLOW_REFRESH': True,
-    'JWT_AUTH_HEADER_PREFIX': 'JWT',
-    'JWT_PAYLOAD_HANDLER': 'otp.utils.jwt_otp_payload',
+TRENCH_AUTH = {
+    "USER_MFA_MODEL": "trench.MFAMethod",
+    "USER_ACTIVE_FIELD": "is_active",
+    "BACKUP_CODES_QUANTITY": 5,
+    "BACKUP_CODES_LENGTH": 12,
+    "BACKUP_CODES_CHARACTERS": (string.ascii_letters + string.digits),
+    "SECRET_KEY_LENGTH": 32,
+    "DEFAULT_VALIDITY_PERIOD": 30,
+    "CONFIRM_DISABLE_WITH_CODE": False,
+    "CONFIRM_BACKUP_CODES_REGENERATION_WITH_CODE": True,
+    "ALLOW_BACKUP_CODES_REGENERATION": True,
+    "ENCRYPT_BACKUP_CODES": True,
+    "APPLICATION_ISSUER_NAME": "MyApplication",
+    "MFA_METHODS": {
+        "app": {
+            "VERBOSE_NAME": ("app"),
+            "VALIDITY_PERIOD": 30,
+            "USES_THIRD_PARTY_CLIENT": True,
+            "HANDLER": "trench.backends.application.ApplicationMessageDispatcher",
+        }
+    }
 }
+
 REST_USE_JWT = True
