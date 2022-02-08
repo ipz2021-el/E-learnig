@@ -1,14 +1,12 @@
-from operator import mod
-from pyexpat import model
-from unicodedata import name
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
+from .managers import EUserManager
 
 class elearningUser(AbstractUser):
-    TYPES = [('STUDENT','student'),('TEACHER','teacher')]
-    username = models.CharField(blank=True, null=True, max_length=50)
+    TYPES = [('STUDENT','student'),('TEACHER','teacher'),('ADMIN','admin')]
+    username = models.CharField(blank=True, null=True, max_length=50, unique=True)
     index_number = models.IntegerField(blank=True, null=True, unique=True)
     first_name = models.CharField(blank=True,max_length=150)
     last_name = models.CharField(blank=True,max_length=150)
@@ -21,10 +19,11 @@ class elearningUser(AbstractUser):
     university = models.CharField(blank=True,null=True,max_length=150)
     type = models.CharField(choices=TYPES,max_length=7)
 
+    objects = EUserManager()
 
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name', 'index_number','type']
+    REQUIRED_FIELDS = ['username','first_name', 'last_name', 'index_number','type']
 
     def __str__(self):
         return "{}".format(self.email)

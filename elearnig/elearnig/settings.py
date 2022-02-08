@@ -150,7 +150,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication', 
         'rest_framework.authentication.BasicAuthentication',    
     ],
@@ -158,6 +158,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated' 
     ],
 }
+
 
 TRENCH_AUTH = {
     "USER_MFA_MODEL": "trench.MFAMethod",
@@ -181,5 +182,3 @@ TRENCH_AUTH = {
         }
     }
 }
-
-REST_USE_JWT = True
