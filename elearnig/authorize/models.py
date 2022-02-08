@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from .managers import EUserManager
 
@@ -10,7 +10,7 @@ class elearningUser(AbstractUser):
     index_number = models.IntegerField(blank=True, null=True, unique=True)
     first_name = models.CharField(blank=True,max_length=150)
     last_name = models.CharField(blank=True,max_length=150)
-    email = models.EmailField(_('email address'), unique=True)
+    email = models.EmailField(('email address'), unique=True)
     street_address = models.CharField(blank=True,null=True,max_length=150)
     zip_code = models.CharField(blank=True,null=True,max_length=6)
     city = models.CharField(blank=True,null=True,max_length=150)
