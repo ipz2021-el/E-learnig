@@ -30,6 +30,7 @@ To set up local frontend development environment you need installed [NodeJS with
 ### Backend setup
 To setup local backend development enviornment you nedd installed Python 3 and Django
 * Install venv `pip3 install virtualenv`
+* `python3 -m venv venv`
 * `source ./venv/bin/activate`
 * `pip3 install -r requirements.txt`
 * Go to the backend folder `cd elearnig`
