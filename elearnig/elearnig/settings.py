@@ -50,13 +50,12 @@ INSTALLED_APPS = [
     'rest_auth',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
+    'rest_auth.registration',
     'trench',
     'authorize',
     'courses',
     'chat',
 ]
-SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -108,7 +107,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = 'authorize.elearningUser'
+AUTH_USER_MODEL = 'authorize.ElearningUser'
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -159,6 +158,18 @@ REST_FRAMEWORK = {
     ],
 }
 
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/?verification=1'
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = '/?verification=1'
+
+SITE_ID = 1
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 TRENCH_AUTH = {
     "USER_MFA_MODEL": "trench.MFAMethod",

@@ -1,11 +1,13 @@
+from allauth.account.views import confirm_email
+from django.conf.urls import url
+from django.contrib import admin
 from django.urls import path, include
-from . import views
 
 urlpatterns = [
-    #other paths
-    path('', views.UserListView.as_view()),
-    path('rest-auth/', include('rest_auth.urls')),
-    path('rest-auth/register/', include('rest_auth.registration.urls')),
-    path('mfa/',include('trench.urls')),
-    path('mfa/',include('trench.urls.authtoken'))
+    path('admin/', admin.site.urls),
+    url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
+    url(r'^account/', include('allauth.urls')),
+    url(r'^accounts-rest/registration/account-confirm-email/(?P<key>.+)/$', confirm_email, name='account_confirm_email'),
+    url(r'^mfa', include('trench.urls'))
 ]
