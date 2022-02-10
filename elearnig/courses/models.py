@@ -104,5 +104,5 @@ class Question(models.Model):
     answear = models.CharField(max_length=200)
 
 class Option(models.Model):
-    question = models.ForeignKey(Question,related_name = 'question_containing',on_delete=models.CASCADE)
+    question = models.ForeignKey(Question,related_name = 'options',on_delete=models.CASCADE)
     text = models.CharField(max_length=200)
