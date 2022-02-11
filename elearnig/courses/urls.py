@@ -8,5 +8,6 @@ urlpatterns = [
 	path(r'^api/courses/create', views.course_create),
 	path(r'^api/courses/(?P<pk>)', views.course_detail),
 	path(r'^api/quizes$', views.quiz_list),
+	path(r'^api/quizes/create', views.quiz_create),
 	path(r'^api/quizes/(?P<pk>)', views.quiz_detail),
 ]
