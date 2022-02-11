@@ -37,7 +37,7 @@ class Module(models.Model):
     course = models.ForeignKey(Course, 
                                related_name='modules',
                                on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200,primary_key=True)
     description = models.TextField(blank=True)
     order = OrderField(blank=True, for_fields=['course'])
 
@@ -87,7 +87,7 @@ class Content(models.Model):
         ordering = ['order']
     
 class Quiz(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200,primary_key=True)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, 
                               related_name='quizes_created',
                               on_delete=models.CASCADE)
