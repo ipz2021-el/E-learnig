@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from doctest import FAIL_FAST
 import os
 import json
 import datetime
@@ -31,7 +32,7 @@ SECRET_KEY = '&feap4-+@49ya6^2qk1sj8cp2ll)x=-#qq$)l8$bzi!41jia7y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['le.tea-it.pl', '46.41.140.79', 'localhost']
+ALLOWED_HOSTS = ['le.tea-it.pl', '46.41.140.79', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -57,8 +58,8 @@ INSTALLED_APPS = [
     'chat',
 ]
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -198,7 +199,10 @@ TRENCH_AUTH = {
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:4200',
-    'http://localhost:8000',
-    'http://localhost:8080',
-)
+     'http://localhost:4200',
+     'http://localhost:8000',
+     'http://localhost:8080',
+     'http://127.0.0.1:4200',
+     'http://127.0.0.1:8000',
+     'http://127.0.0.1:8080',
+ )
