@@ -22,7 +22,7 @@
       <!-- <div class="error active">
         Invalid user name or password
       </div> -->
-      <button (click)="logging_step = '2fa'" class="btn btn-primary">ZALOGUJ</button>
+      <button (click)="login()" class="btn btn-primary">ZALOGUJ</button>
     </div>
     <div class="2fa-group login-group" *ngIf="logging_step == '2fa'">
       <div class="qr-wrapper">

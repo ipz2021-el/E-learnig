@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { ClarityModule } from '@clr/angular';
 import { CdsModule } from '@cds/angular';
 
@@ -40,6 +41,7 @@ ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon, en
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ClarityModule,
     BrowserAnimationsModule,
