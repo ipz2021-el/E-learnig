@@ -35,6 +35,7 @@ To setup local backend development enviornment you nedd installed Python 3 and D
 * `pip3 install -r requirements.txt`
 * Go to the backend folder `cd elearnig`
 * Make migrations `python3 manage.py makemigrations`
+* `python3 manage.py makemigrations authorize`
 * Run migrations `python3 manage.py migrate`
 * Run server `python3 manage.py runserver`
 * API will be available at http://localhost:8000/
