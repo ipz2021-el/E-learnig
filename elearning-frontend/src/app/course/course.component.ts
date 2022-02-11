@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseComponent implements OnInit {
 
-  constructor() { }
+  course:any;
+
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
+
+  courses_endpoint() {
+    return this.http.get('http://localhost:3000/courses');
+  }
 
   ngOnInit(): void {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      // do your task for before route
+
+      return false;
+    }
+
+    this.courses_endpoint().subscribe((res) => {
+      let courses:any = res;
+      this.course = courses.filter((c: any) => c.id == this.route.snapshot.paramMap.get("id"))[0]
+      console.log(this.course)
+    })
   }
 
 }

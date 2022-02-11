@@ -7,16 +7,20 @@ import { CoursesComponent } from './courses/courses.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { ChatComponent } from './chat/chat.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { CreateCourseComponent } from './create-course/create-course.component';
+import { CreateQuizComponent } from './create-quiz/create-quiz.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'courses', component: CoursesComponent },
-  { path: 'course', component: CourseComponent },
-  { path: 'course/lesson', component: LessonComponent },
+  { path: 'course/:id', component: CourseComponent },
+  { path: 'course/:id/lesson', component: LessonComponent },
+  { path: 'course/create', component: CreateCourseComponent },
   { path: 'assignments', component: AssignmentsComponent },
   { path: 'chat', component: ChatComponent},
-  { path: 'quiz', component: QuizComponent }
+  { path: 'quiz/:id', component: QuizComponent },
+  { path: 'quiz/create', component: CreateQuizComponent }
 ];
 
 @NgModule({

@@ -15,13 +15,13 @@
         </p>
         <p>Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam. </p>
         <p><b>Tagi: </b> <a href="#inf">#informatyka </a> <a href="#inz">#inżynieria </a> <a href="#proj">#projekt </a></p>
-        <p><cds-button [routerLink]="['/course']">Przejdź do kursu</cds-button><br>
+        <p><cds-button [routerLink]="['/course/0']">Przejdź do kursu</cds-button><br>
     </div>
     <div class="card course-card big-card centered">
-        <h3>Dodaj nowy kurs <cds-icon shape="plus-circle"></cds-icon></h3>
+        <cds-button [routerLink]="['/course/create']">Utwórz nowy kurs <cds-icon shape="plus-circle"></cds-icon></cds-button>
     </div>
 </div>
-<h2>Najbliższe zadanie domowe</h2>
+<!-- <h2>Najbliższe zadanie domowe</h2>
 <div class="card-row">
     <div class="card card-assignment">
         <div class="img">
@@ -35,5 +35,5 @@
             <cds-button action="outline" [routerLink]="['/course']">Przejdź do kursu</cds-button>
         </div>
     </div>
-</div>
+</div> -->
 <p></p>

@@ -3,29 +3,28 @@
     <section class="title">
       <h3 class="welcome">Najlepsza na świecie</h3>
       Platforma E-learning
-      <h5 class="hint" *ngIf="logging_step == 'credentials'">Użyj swojego numeru identyfikacyjnego i hasła by się zalogować</h5>
+      <h5 class="hint" *ngIf="logging_step == 'credentials'">Użyj swojego numeru identyfikacyjnego i hasła by się zalogować. Podpowiedź: dane do konta testowego to identyfikator: test i hasło: test.</h5>
       <h5 class="hint" *ngIf="logging_step == '2fa'">Zeskanuj poniższy kod QR w aplikacji do dwustopniowej autentykacji np. Google Authenticator, Okta</h5>
     </section>
     <div class="login-group" *ngIf="logging_step == 'credentials'">
       <clr-input-container>
         <label class="clr-sr-only">Identyfikator</label>
-        <input type="text" name="username" clrInput placeholder="Identyfikator" />
+        <input type="text" name="username" clrInput placeholder="Identyfikator" [(ngModel)]="id" />
       </clr-input-container>
       <clr-password-container>
         <label class="clr-sr-only">Hasło</label>
-        <input type="password" name="password" clrPassword placeholder="Hasło" />
+        <input type="password" name="password" clrPassword placeholder="Hasło" [(ngModel)]="pass"/>
       </clr-password-container>
       <clr-checkbox-wrapper>
         <label>Zapamiętaj mnie</label>
         <input type="checkbox" name="rememberMe" clrCheckbox />
       </clr-checkbox-wrapper>
-      <!-- <div class="error active">
+      <div class="error active" *ngIf="err">
         Invalid user name or password
-      </div> -->
+      </div>
       <button (click)="login()" class="btn btn-primary">ZALOGUJ</button>
-      <button (click)="add_course()" class="btn btn-primary">DODAJ KURS</button>
     </div>
-    <div class="2fa-group login-group" *ngIf="logging_step == '2fa'">
+    <!-- <div class="2fa-group login-group" *ngIf="logging_step == '2fa'">
       <div class="qr-wrapper">
         <img src="../assets/qr.svg">
       </div>
@@ -34,7 +33,7 @@
         <input type="number" name="code" clrInput placeholder="Kod weryfikacyjny" />
       </clr-input-container>
       <button (click)="logged = true" class="btn btn-primary">ZWERYFIKUJ</button>
-    </div>
+    </div> -->
   </form>
 </div>
 
@@ -65,19 +64,19 @@
             Moje kursy
           </label>
           <ul class="nav-list">
-            <li><a class="nav-link" [routerLink]="['/course']" [ngClass]="{'active' : nav == 'course'}"
+            <li><a class="nav-link" [routerLink]="['/course/0']" [ngClass]="{'active' : nav == 'course'}"
                 (click)="nav = 'course'">Inżynierski projekt
                 zespołowy 2</a></li>
             <li><a class="nav-link" [routerLink]="['/courses']" [ngClass]="{'active' : nav == 'courses'}"
               (click)="nav = 'courses'">
-                <cds-icon shape="plus-circle"></cds-icon> Dodaj kurs
+                <cds-icon shape="plus-circle"></cds-icon> Znajdź kurs
               </a></li>
           </ul>
         </section>
-        <a class="nav-link nav-icon" [routerLink]="['/assignments']" [ngClass]="{'active' : nav == 'assignments'}"
+        <!-- <a class="nav-link nav-icon" [routerLink]="['/assignments']" [ngClass]="{'active' : nav == 'assignments'}"
         (click)="nav = 'assignments'">
           <cds-icon shape="home"></cds-icon> Zadania domowe
-        </a>
+        </a> -->
         <a class="nav-link nav-icon" [routerLink]="['/chat']" [ngClass]="{'active' : nav == 'chat'}"
         (click)="nav = 'chat'">
           <cds-icon shape="envelope"></cds-icon> Wiadomości

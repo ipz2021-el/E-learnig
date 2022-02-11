@@ -25,6 +25,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { ChatComponent } from './chat/chat.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { CreateCourseComponent } from './create-course/create-course.component';
+import { CreateQuizComponent } from './create-quiz/create-quiz.component';
 
 ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon, envelopeIcon);
 
@@ -38,7 +40,9 @@ ClarityIcons.addIcons(userIcon, cogIcon, eventIcon, homeIcon, plusCircleIcon, en
     CoursesComponent,
     AssignmentsComponent,
     ChatComponent,
-    QuizComponent
+    QuizComponent,
+    CreateCourseComponent,
+    CreateQuizComponent
   ],
   imports: [
     BrowserModule,

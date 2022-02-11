@@ -1,0 +1,22 @@
+{
+    "courses": [
+        {
+            "id": 0,
+            "image": "curriculum",
+            "title": "Inżynierski Projekt Zespołowy 2",
+            "tutor": "Jan Kowalski",
+            "description": "Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam.",
+            "tags": "#informatyka #inżynieria #projekt",
+            "joined": true
+          },
+      {
+        "id": 1,
+        "image": "jupiter-planet",
+        "title": "Fizyka i astronomia",
+        "tutor": "Milena Michalska",
+        "description": "Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam.",
+        "tags": "#fizyka #astronomia #kosmos",
+        "joined": false
+      }
+    ]
+  }
