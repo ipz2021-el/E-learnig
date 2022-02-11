@@ -23,19 +23,12 @@ def courses_list(request):
         course_serializer = CourseSerializer(courses)
         return JsonResponse(course_serializer.data)
 
-@api_view(['GET', 'POST', 'DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def course_detail(request,id):
     course = Course.objects.get(id)
     if request.method == 'GET':
         course_serializer = CourseSerializer(course)
         return JsonResponse(course_serializer.data)
-    elif request.method == 'POST':
-        course_data = JSONParser().parse(request)
-        course_serializer = CourseSerializer(data = course_data)
-        if course_serializer.is_valid():
-            course_serializer.save()
-            return JsonResponse(course_serializer.data, status = status.HTTP_201_CREATED)
-        return JsonResponse(course_serializer.errors, status = status.HTTP_400_BAD_REQUEST)
     elif request.method == 'PUT':
         course_data = JSONParser().parse(request)
         course_serializer = CourseSerializer(course,data = course_data)
@@ -46,6 +39,15 @@ def course_detail(request,id):
     elif request.method == 'DELETE':
         course.delete()
         return JsonResponse({'message': 'Course deleted succesfully'},status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['POST'])
+def course_create(request):
+    course_data = JSONParser().parse(request)
+    course_serializer = CourseSerializer(data = course_data)
+    if course_serializer.is_valid():
+        course_serializer.save()
+        return JsonResponse(course_serializer.data, status = status.HTTP_201_CREATED)
+    return JsonResponse(course_serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'POST', 'DELETE'])
 def course_list(request):
@@ -66,19 +68,12 @@ def quizes_list(request):
         quiz_serializer = QuizSerializer(quizes)
         return JsonResponse(quiz_serializer.data)
 
-@api_view(['GET', 'POST', 'DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def quiz_detail(request,id):
     quiz = Quiz.objects.get(id)
     if request.method == 'GET':
         quiz_serializer = QuizSerializer(quiz)
-        return JsonResponse(quiz_serializer.data)
-    elif request.method == 'POST':
-        quiz_data = JSONParser().parse(request)
-        quiz_serializer = QuizSerializer(data = quiz_data)
-        if quiz_serializer.is_valid():
-            quiz_serializer.save()
-            return JsonResponse(quiz_serializer.data, status = status.HTTP_201_CREATED)
-        return JsonResponse(quiz_serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+        return JsonResponse(quiz_serializer.data)        
     elif request.method == 'PUT':
         quiz_data = JSONParser().parse(request)
         quiz_serializer = QuizSerializer(quiz,data = quiz_data)
@@ -89,6 +84,15 @@ def quiz_detail(request,id):
     elif request.method == 'DELETE':
         quiz.delete()
         return JsonResponse({'message': 'Quiz deleted succesfully'},status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['POST'])
+def quiz_create(request):
+    quiz_data = JSONParser().parse(request)
+    quiz_serializer = QuizSerializer(data = quiz_data)
+    if quiz_serializer.is_valid():
+        quiz_serializer.save()
+        return JsonResponse(quiz_serializer.data, status = status.HTTP_201_CREATED)
+    return JsonResponse(quiz_serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'POST', 'DELETE'])
 def quiz_list(request):
