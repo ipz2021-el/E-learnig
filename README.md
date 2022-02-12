@@ -25,6 +25,8 @@ Project is created with:
 To set up local frontend development environment you need installed [NodeJS with npm](https://nodejs.org/en/download/) and (Angular CLI)[https://angular.io/cli].
 * Go to the frontend folder `cd elearning-frontend`
 * Install project dependencies `npm install`
+* Install json-server `npm install -g json-server`
+* Run json-server `cd json-server` and `json-server --watch db.json` and then return to main folder `cd ..`
 * Start project `npm start`
 * Go to http://localhost:4200/
 ### Backend setup
