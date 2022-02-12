@@ -19,15 +19,6 @@
       "joined": false
     },
     {
-      "id": 1644627718202,
-      "image": "brain",
-      "title": "a",
-      "tutor": "a",
-      "description": "a",
-      "tags": "a",
-      "joined": false
-    },
-    {
       "id": 1644628422749,
       "image": "biotech",
       "title": "Biologia",
@@ -36,5 +27,53 @@
       "tags": "#biologia #bio",
       "joined": true
     }
+  ],
+  "quizzes": [
+    {
+      "id": "1",
+      "title" :"Test: Tworzenie SRS i harmonogramu prac",
+      "image": "curriculum",
+      "course": "Inżyniersi projekt zespołowy 2",
+      "pages": [
+        {
+            "questions": []
+        }, {
+            "questions": [
+                {
+                    "type": "radiogroup",
+                    "name": "srs",
+                    "title": "Rozwiń skrót SRS?",
+                    "choices": [
+                        "Software Requirements Specification", "System Requirements Spreadsheet", "Software Random Systems"
+                    ],
+                    "correctAnswer": "Software Requirements Specification"
+                }
+            ]
+          }, {
+            "questions": [
+                {
+                    "type": "radiogroup",
+                    "name": "srs1",
+                    "title": "Rozwiń skrót SRS?",
+                    "choices": [
+                        "Software Requirements Specification", "System Requirements Spreadsheet", "Software Random Systems"
+                    ],
+                    "correctAnswer": "Software Requirements Specification"
+                }
+            ]
+          }, {
+            "questions": [
+                {
+                    "type": "radiogroup",
+                    "name": "srs2",
+                    "title": "Rozwiń skrót SRS?",
+                    "choices": [
+                        "Software Requirements Specification", "System Requirements Spreadsheet", "Software Random Systems"
+                    ],
+                    "correctAnswer": "Software Requirements Specification"
+                }
+            ]
+        }
+    ]}
   ]
 }

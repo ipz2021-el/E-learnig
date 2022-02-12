@@ -9,6 +9,7 @@ import { ChatComponent } from './chat/chat.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { CreateQuizComponent } from './create-quiz/create-quiz.component';
+import { QuizzesComponent } from './quizzes/quizzes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'assignments', component: AssignmentsComponent },
   { path: 'chat', component: ChatComponent},
   { path: 'quiz/:id', component: QuizComponent },
-  { path: 'create/quiz', component: CreateQuizComponent }
+  { path: 'create/quiz', component: CreateQuizComponent },
+  { path: 'quizzes', component: QuizzesComponent}
 ];
 
 @NgModule({

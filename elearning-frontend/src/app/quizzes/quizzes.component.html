@@ -1,0 +1,22 @@
+<h1>Dostępne testy</h1>
+<div class="card-row">
+    <div class="card card-assignment">
+        <div class="button">
+            <cds-button action="outline" [routerLink]="['/create/quiz']">Dodaj własny test <cds-icon shape="plus-circle"></cds-icon></cds-button>
+        </div>
+    </div>
+</div>
+<div class="card-row" *ngFor="let quiz of quizzes">
+    <div class="card card-assignment">
+        <div class="img">
+            <img src="../../assets/{{quiz.image}}.png">
+        </div>
+        <div class="desc">
+            <h2>{{quiz.title}}</h2>
+            {{quiz.course}}, Ukończ test do: <span class="red">jutro 23:59</span>
+        </div>
+        <div class="button">
+            <cds-button action="outline" [routerLink]="['/quiz', quiz.id]">Rozwiąż quiz</cds-button>
+        </div>
+    </div>
+</div>

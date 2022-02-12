@@ -84,6 +84,23 @@
                 </a></li>
           </ul>
         </section>
+
+        <section class="nav-group collapsible">
+          <input id="tabexample12" type="checkbox" />
+          <label for="tabexample12">
+            Testy i quizy
+          </label>
+          <ul class="nav-list">
+            <li><a class="nav-link" [routerLink]="['/quizzes']" [ngClass]="{'active' : nav == 'quizzes'}"
+              (click)="nav = 'quizzes'">
+                Wszystkie testy
+              </a></li>
+              <li><a class="nav-link" [routerLink]="['/create/quiz']" [ngClass]="{'active' : nav == 'create-quizzes'}"
+                (click)="nav = 'create-quizzes'">
+                  <cds-icon shape="plus-circle"></cds-icon> Dodaj test
+                </a></li>
+          </ul>
+        </section>
         <!-- <a class="nav-link nav-icon" [routerLink]="['/assignments']" [ngClass]="{'active' : nav == 'assignments'}"
         (click)="nav = 'assignments'">
           <cds-icon shape="home"></cds-icon> Zadania domowe
