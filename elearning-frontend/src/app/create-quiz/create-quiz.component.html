@@ -1,1 +1,93 @@
-<p>create-quiz works!</p>
+<h2>Stwórz własny test!</h2>
+<div class="card-row">
+    <div class="card">
+        <p>Za pomocą tego formularza możesz utworzyć swój własny test! Uzupełnij wszystkie pola i naciśnij Dodaj, a Twój test pojawi się w katalogu testów!</p>
+        <form clrForm>
+            <clr-input-container>
+            <label>Tytuł testu</label>
+            <input clrInput name="title" [(ngModel)]="title" />
+            </clr-input-container>
+
+            <p>
+                <span class="q_title">Wybierz ikonę testu</span>
+            </p>
+
+            <div class="image-container">
+                <div class="icon" *ngFor="let ic of icons">
+                    <input type="radio"
+                    id="{{ic}}"
+                    name="{{ic}}"
+                    [value]="ic"
+                    [(ngModel)]="image" />
+                    <img src="../../assets/{{ic}}.png">
+                </div>
+            </div>
+
+            <h3>Pytanie 1</h3>
+            <clr-input-container>
+                <label>Treść pytania 1</label>
+                <input clrInput name="q1" [(ngModel)]="q1" />
+                </clr-input-container>
+                <clr-input-container>
+                    <label>Odpowiedź 1</label>
+                    <input clrInput name="q1a1" [(ngModel)]="q1a1" />
+                    </clr-input-container>
+                    <clr-input-container>
+                        <label>Odpowiedź 2</label>
+                        <input clrInput name="q1a2" [(ngModel)]="q1a2" />
+                        </clr-input-container>
+                        <clr-input-container>
+                            <label>Odpowiedź 3</label>
+                            <input clrInput name="q1a3" [(ngModel)]="q1a3" />
+                            </clr-input-container>
+                            <clr-input-container>
+                                <label>Prawidłowa odpowiedź</label>
+                                <input clrInput name="q1r" [(ngModel)]="q1r" />
+                                </clr-input-container>
+
+                            <h3>Pytanie 2</h3>
+                            <clr-input-container>
+                                <label>Treść pytania 2</label>
+                                <input clrInput name="q2" [(ngModel)]="q2" />
+                                </clr-input-container>
+                                <clr-input-container>
+                                    <label>Odpowiedź 1</label>
+                                    <input clrInput name="q2a1" [(ngModel)]="q2a1" />
+                                    </clr-input-container>
+                                    <clr-input-container>
+                                        <label>Odpowiedź 2</label>
+                                        <input clrInput name="q2a2" [(ngModel)]="q2a2" />
+                                        </clr-input-container>
+                                        <clr-input-container>
+                                            <label>Odpowiedź 3</label>
+                                            <input clrInput name="q2a3" [(ngModel)]="q2a3" />
+                                            </clr-input-container>
+                                            <clr-input-container>
+                                                <label>Prawidłowa odpowiedź</label>
+                                                <input clrInput name="q2r" [(ngModel)]="q2r" />
+                                                </clr-input-container>
+                                            <h3>Pytanie 3</h3>
+                                            <clr-input-container>
+                                                <label>Treść pytania 3</label>
+                                                <input clrInput name="q3" [(ngModel)]="q3" />
+                                                </clr-input-container>
+                                                <clr-input-container>
+                                                    <label>Odpowiedź 1</label>
+                                                    <input clrInput name="q3a1" [(ngModel)]="q3a1" />
+                                                    </clr-input-container>
+                                                    <clr-input-container>
+                                                        <label>Odpowiedź 2</label>
+                                                        <input clrInput name="q3a2" [(ngModel)]="q3a2" />
+                                                        </clr-input-container>
+                                                        <clr-input-container>
+                                                            <label>Odpowiedź 3</label>
+                                                            <input clrInput name="q3a3" [(ngModel)]="q3a3" />
+                                                            </clr-input-container>
+                                                            <clr-input-container>
+                                                                <label>Prawidłowa odpowiedź</label>
+                                                                <input clrInput name="q3r" [(ngModel)]="q3r" />
+                                                                </clr-input-container>
+        </form>
+        <p><cds-button action="solid" (click)="send()">Dodaj</cds-button></p>
+    </div>
+</div>

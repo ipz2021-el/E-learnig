@@ -31,49 +31,114 @@
   "quizzes": [
     {
       "id": "1",
-      "title" :"Test: Tworzenie SRS i harmonogramu prac",
+      "title": "Test: Tworzenie SRS i harmonogramu prac",
       "image": "curriculum",
-      "course": "Inżyniersi projekt zespołowy 2",
       "pages": [
         {
-            "questions": []
-        }, {
-            "questions": [
-                {
-                    "type": "radiogroup",
-                    "name": "srs",
-                    "title": "Rozwiń skrót SRS?",
-                    "choices": [
-                        "Software Requirements Specification", "System Requirements Spreadsheet", "Software Random Systems"
-                    ],
-                    "correctAnswer": "Software Requirements Specification"
-                }
-            ]
-          }, {
-            "questions": [
-                {
-                    "type": "radiogroup",
-                    "name": "srs1",
-                    "title": "Rozwiń skrót SRS?",
-                    "choices": [
-                        "Software Requirements Specification", "System Requirements Spreadsheet", "Software Random Systems"
-                    ],
-                    "correctAnswer": "Software Requirements Specification"
-                }
-            ]
-          }, {
-            "questions": [
-                {
-                    "type": "radiogroup",
-                    "name": "srs2",
-                    "title": "Rozwiń skrót SRS?",
-                    "choices": [
-                        "Software Requirements Specification", "System Requirements Spreadsheet", "Software Random Systems"
-                    ],
-                    "correctAnswer": "Software Requirements Specification"
-                }
-            ]
+          "questions": []
+        },
+        {
+          "questions": [
+            {
+              "type": "radiogroup",
+              "name": "srs",
+              "title": "Rozwiń skrót SRS?",
+              "choices": [
+                "Software Requirements Specification",
+                "System Requirements Spreadsheet",
+                "Software Random Systems"
+              ],
+              "correctAnswer": "Software Requirements Specification"
+            }
+          ]
+        },
+        {
+          "questions": [
+            {
+              "type": "radiogroup",
+              "name": "srs1",
+              "title": "Rozwiń skrót SRS?",
+              "choices": [
+                "Software Requirements Specification",
+                "System Requirements Spreadsheet",
+                "Software Random Systems"
+              ],
+              "correctAnswer": "Software Requirements Specification"
+            }
+          ]
+        },
+        {
+          "questions": [
+            {
+              "type": "radiogroup",
+              "name": "srs2",
+              "title": "Rozwiń skrót SRS?",
+              "choices": [
+                "Software Requirements Specification",
+                "System Requirements Spreadsheet",
+                "Software Random Systems"
+              ],
+              "correctAnswer": "Software Requirements Specification"
+            }
+          ]
         }
-    ]}
+      ]
+    },
+    {
+      "id": 1644633460482,
+      "image": "mobile",
+      "title": "test1",
+      "pages": [
+        {
+          "questions": []
+        },
+        {
+          "questions": [
+            {
+              "type": "radiogroup",
+              "name": "q1",
+              "title": "zaznacz a ",
+              "choices": [
+                "a",
+                "b",
+                "c"
+              ],
+              "correctAnswer": "a"
+            }
+          ]
+        },
+        {
+          "questions": [
+            {
+              "type": "radiogroup",
+              "name": "q2",
+              "title": "zaznacz b",
+              "choices": [
+                "a",
+                "b",
+                "c"
+              ],
+              "correctAnswer": "b"
+            }
+          ]
+        },
+        {
+          "questions": [
+            {
+              "type": "radiogroup",
+              "name": "q3",
+              "title": "zaznacz c",
+              "choices": [
+                "a",
+                "b",
+                "c"
+              ],
+              "correctAnswer": "c"
+            }
+          ]
+        }
+      ],
+      "joined": false
+    }
   ]
 }

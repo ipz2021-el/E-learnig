@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Model, SurveyNG } from "survey-angular";
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -12,6 +15,8 @@ export class QuizComponent implements OnInit {
     navigationButton: "cds-button"
   }
 
+  quiz:any;
+
   surveyJson = {
     showProgressBar: "top",
     showTimerPanel: "top",
@@ -19,55 +24,29 @@ export class QuizComponent implements OnInit {
     maxTimeToFinish: 30,
     firstPageIsStarted: true,
     startSurveyText: "Rozpocznij test!",
-    pages: [
-        {
-            questions: []
-        }, {
-            questions: [
-                {
-                    type: "radiogroup",
-                    name: "srs",
-                    title: "Rozwiń skrót SRS?",
-                    choices: [
-                        "Software Requirements Specification", "System Requirements Spreadsheet", "Software Random Systems"
-                    ],
-                    correctAnswer: "Software Requirements Specification"
-                }
-            ]
-          }, {
-            questions: [
-                {
-                    type: "radiogroup",
-                    name: "srs1",
-                    title: "Rozwiń skrót SRS?",
-                    choices: [
-                        "Software Requirements Specification", "System Requirements Spreadsheet", "Software Random Systems"
-                    ],
-                    correctAnswer: "Software Requirements Specification"
-                }
-            ]
-          }, {
-            questions: [
-                {
-                    type: "radiogroup",
-                    name: "srs2",
-                    title: "Rozwiń skrót SRS?",
-                    choices: [
-                        "Software Requirements Specification", "System Requirements Spreadsheet", "Software Random Systems"
-                    ],
-                    correctAnswer: "Software Requirements Specification"
-                }
-            ]
-        }
-    ],
+    pages: [],
     completedHtml: "<h4>Udzielono <b>{correctedAnswers}</b> poprawnych odpowiedzi na <b>{questionCount}</b> możliwych.</h4>"
   };
 
-  constructor() { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    const survey = new Model(this.surveyJson);
-    SurveyNG.render("surveyContainer", { model: survey, css: this.survey_css});
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      // do your task for before route
+      return false;
+    }
+
+    this.quizzes_endpoint().subscribe((res) => {
+      let quizzes:any = res;
+      this.quiz = quizzes.filter((c: any) => c.id == this.route.snapshot.paramMap.get("id"))[0]
+      this.surveyJson.pages = this.quiz.pages;
+      const survey = new Model(this.surveyJson);
+      SurveyNG.render("surveyContainer", { model: survey, css: this.survey_css});
+    })
+  }
+
+  quizzes_endpoint() {
+    return this.http.get('http://localhost:3000/quizzes');
   }
 
 }
