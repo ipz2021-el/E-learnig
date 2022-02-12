@@ -4,21 +4,21 @@
     </cds-alert>
 </cds-alert-group>
 
-<h1>Witaj, Milena!</h1>
+<h1>Witaj, Test!</h1>
 <h2>Moje kursy</h2>
 <div class="card-row">
-    <div class="card course-card big-card">
-        <img src="../../assets/curriculum.png">
-        <h3>Inżynierski projekt zespołowy 2</h3>
-        <p><b>Prowadzący:</b> <a href="#janko"> Jan Kowalski </a>
+    <div *ngFor="let course of courses" class="card course-card big-card">
+        <img src="../../assets/{{course.image}}.png">
+        <h3>{{course.title}}</h3>
+        <p><b>Prowadzący:</b> <a href="#janko"> {{course.tutor}} </a>
             <cds-icon shape="user"></cds-icon>
         </p>
-        <p>Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam. </p>
-        <p><b>Tagi: </b> <a href="#inf">#informatyka </a> <a href="#inz">#inżynieria </a> <a href="#proj">#projekt </a></p>
-        <p><cds-button [routerLink]="['/course/0']">Przejdź do kursu</cds-button><br>
+        <p>{{course.description}}</p>
+        <p><b>Tagi: </b> <a href="#inf">{{course.tags}}</a></p>
+        <p><cds-button [routerLink]="['/course/', course.id]">Przejdź do kursu</cds-button><br>
     </div>
     <div class="card course-card big-card centered">
-        <cds-button [routerLink]="['/course/create']">Utwórz nowy kurs <cds-icon shape="plus-circle"></cds-icon></cds-button>
+        <cds-button [routerLink]="['/create/course']">Utwórz nowy kurs <cds-icon shape="plus-circle"></cds-icon></cds-button>
     </div>
 </div>
 <!-- <h2>Najbliższe zadanie domowe</h2>

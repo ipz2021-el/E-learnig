@@ -1,22 +1,40 @@
 {
-    "courses": [
-        {
-            "id": 0,
-            "image": "curriculum",
-            "title": "Inżynierski Projekt Zespołowy 2",
-            "tutor": "Jan Kowalski",
-            "description": "Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam.",
-            "tags": "#informatyka #inżynieria #projekt",
-            "joined": true
-          },
-      {
-        "id": 1,
-        "image": "jupiter-planet",
-        "title": "Fizyka i astronomia",
-        "tutor": "Milena Michalska",
-        "description": "Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam.",
-        "tags": "#fizyka #astronomia #kosmos",
-        "joined": false
-      }
-    ]
-  }
+  "courses": [
+    {
+      "id": 0,
+      "image": "curriculum",
+      "title": "Inżynierski Projekt Zespołowy 2",
+      "tutor": "Jan Kowalski",
+      "description": "Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam.",
+      "tags": "#informatyka #inżynieria #projekt",
+      "joined": true
+    },
+    {
+      "id": 1,
+      "image": "jupiter-planet",
+      "title": "Fizyka i astronomia",
+      "tutor": "Milena Michalska",
+      "description": "Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam.",
+      "tags": "#fizyka #astronomia #kosmos",
+      "joined": false
+    },
+    {
+      "id": 1644627718202,
+      "image": "brain",
+      "title": "a",
+      "tutor": "a",
+      "description": "a",
+      "tags": "a",
+      "joined": false
+    },
+    {
+      "id": 1644628422749,
+      "image": "biotech",
+      "title": "Biologia",
+      "tutor": "Anna Kluska",
+      "description": "In justo mi, tincidunt sed dapibus at, cursus ut risus. Donec mauris leo, luctus tincidunt condimentum et, lobortis in elit. Integer cursus ligula sapien, imperdiet tempor massa fringilla vel. Maecenas accumsan augue et orci porttitor, et venenatis mauris fermentum. Nullam luctus dolor quis ipsum gravida tempus. Nam sit amet purus cursus, cursus diam eget, cursus ex. In sapien enim, sollicitudin nec tortor vitae, viverra semper diam. Etiam in sodales orci. Integer vel fermentum ante, eget ullamcorper felis. Phasellus ipsum elit, tincidunt et mollis vel, efficitur eget mi. Integer elit turpis, tincidunt vitae nulla eu, sodales tincidunt diam. Maecenas turpis velit, blandit porta justo sed, fringilla ultrices augue. Vestibulum accumsan dictum enim auctor eleifend. ",
+      "tags": "#biologia #bio",
+      "joined": true
+    }
+  ]
+}

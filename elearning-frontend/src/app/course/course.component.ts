@@ -18,6 +18,17 @@ export class CourseComponent implements OnInit {
     return this.http.get('http://localhost:3000/courses');
   }
 
+  courses_endpoint_put(course: any) {
+    return this.http.put('http://localhost:3000/courses/' + this.route.snapshot.paramMap.get("id"), course);
+  }
+
+  join() {
+    this.course.joined = true;
+    this.courses_endpoint_put(this.course).subscribe((res) => {
+      console.log(res);
+    })
+  }
+
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       // do your task for before route

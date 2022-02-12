@@ -1,1 +1,43 @@
-<p>create-course works!</p>
+<h2>Stwórz własny kurs!</h2>
+<div class="card-row">
+    <div class="card">
+        <p>Za pomocą tego formularza możesz utworzyć swój własny kurs! Uzupełnij wszystkie pola i naciśnij Dodaj, a Twój kurs pojawi się w katalogu kursów!</p>
+        <form clrForm>
+            <clr-input-container>
+            <label>Nazwa kursu</label>
+            <input clrInput name="title" [(ngModel)]="title" />
+            </clr-input-container>
+
+            <clr-input-container>
+                <label>Imię i nazwisko prowadzącego</label>
+                <input clrInput name="tutor" [(ngModel)]="tutor" />
+            </clr-input-container>
+
+            <clr-textarea-container>
+                <label>Opis kursu</label>
+                <textarea clrTextarea [(ngModel)]="description" name="description"></textarea>
+            </clr-textarea-container>
+
+            <clr-input-container>
+                <label>Tagi</label>
+                <input clrInput name="tags" [(ngModel)]="tags" />
+            </clr-input-container>
+
+            <p>
+                <span class="q_title">Wybierz ikonę kursu</span>
+            </p>
+
+            <div class="image-container">
+                <div class="icon" *ngFor="let ic of icons">
+                    <input type="radio"
+                    id="{{ic}}"
+                    name="{{ic}}"
+                    [value]="ic"
+                    [(ngModel)]="image" />
+                    <img src="../../assets/{{ic}}.png">
+                </div>
+            </div>
+        </form>
+        <p><cds-button action="solid" (click)="send()">Dodaj</cds-button></p>
+    </div>
+</div>

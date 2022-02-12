@@ -16,11 +16,11 @@ const routes: Routes = [
   { path: 'courses', component: CoursesComponent },
   { path: 'course/:id', component: CourseComponent },
   { path: 'course/:id/lesson', component: LessonComponent },
-  { path: 'course/create', component: CreateCourseComponent },
+  { path: 'create/course', component: CreateCourseComponent },
   { path: 'assignments', component: AssignmentsComponent },
   { path: 'chat', component: ChatComponent},
   { path: 'quiz/:id', component: QuizComponent },
-  { path: 'quiz/create', component: CreateQuizComponent }
+  { path: 'create/quiz', component: CreateQuizComponent }
 ];
 
 @NgModule({

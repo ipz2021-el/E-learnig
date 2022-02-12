@@ -55,7 +55,7 @@
         <p><b>Prowadzący:</b> <a href="#janko"> {{course.tutor}} </a>
             <cds-icon shape="user"></cds-icon>
         </p>
-        <p>Cras urna mi, auctor at pulvinar ac, lobortis in leo. Integer hendrerit, odio eget luctus consectetur, risus massa auctor neque, at sodales elit neque quis diam. </p>
+        <p>{{course.description}}</p>
         <br>
         <cds-button action="outline" [routerLink]="['/course', course.id]">Szczegóły kursu</cds-button>
     </div>

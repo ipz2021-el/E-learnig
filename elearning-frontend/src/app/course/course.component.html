@@ -20,12 +20,13 @@
     </div>
     <div class="card small">
         <h2>Twoja aktywność</h2>
-        <cds-progress-circle status="info" [value]="50" class="progress-circle"></cds-progress-circle>
-        <cds-button action="outline" [routerLink]="['/course/0/lesson']">Kontynuuj ostatnią lekcję</cds-button>
+        <cds-progress-circle *ngIf="course.joined" status="info" [value]="50" class="progress-circle"></cds-progress-circle>
+        <cds-button *ngIf="course.joined" action="outline" [routerLink]="['/course/0/lesson']">Kontynuuj ostatnią lekcję</cds-button>
+        <cds-button *ngIf="!course.joined" action="solid" (click)="join()">Dołacz do kursu!</cds-button>
     </div>
 </div>
 
-<div class="card-row">
+<div class="card-row" *ngIf="course.joined">
     <table class="table" style="width: 100%">
         <colgroup>
             <col span="1" style="width: 15%;">
