@@ -37,4 +37,17 @@ export class AppComponent {
       this.err = true;
     }
   }
+
+  courses:any;
+
+  courses_endpoint() {
+    return this.http.get('http://localhost:3000/courses');
+  }
+
+  ngOnInit(): void {
+    this.courses_endpoint().subscribe((res) => {
+      this.courses = res
+      this.courses = this.courses.filter((c:any) => c.joined);
+    })
+  }
 }

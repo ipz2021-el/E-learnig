@@ -64,13 +64,24 @@
             Moje kursy
           </label>
           <ul class="nav-list">
-            <li><a class="nav-link" [routerLink]="['/course/0']" [ngClass]="{'active' : nav == 'course'}"
-                (click)="nav = 'course'">Inżynierski projekt
-                zespołowy 2</a></li>
+            <li *ngFor="let course of courses"><a class="nav-link" [routerLink]="['/course', course.id]" [ngClass]="{'active' : nav == 'course' + course.id}"
+                (click)="nav = 'course' + course.id">{{course.title}}</a></li>
+          </ul>
+        </section>
+        <section class="nav-group collapsible">
+          <input id="tabexample12" type="checkbox" />
+          <label for="tabexample12">
+            Wszystkie kursy
+          </label>
+          <ul class="nav-list">
             <li><a class="nav-link" [routerLink]="['/courses']" [ngClass]="{'active' : nav == 'courses'}"
               (click)="nav = 'courses'">
-                <cds-icon shape="plus-circle"></cds-icon> Znajdź kurs
+                Znajdź kurs
               </a></li>
+              <li><a class="nav-link" [routerLink]="['/create/course']" [ngClass]="{'active' : nav == 'create-courses'}"
+                (click)="nav = 'create-courses'">
+                  <cds-icon shape="plus-circle"></cds-icon> Dodaj kurs
+                </a></li>
           </ul>
         </section>
         <!-- <a class="nav-link nav-icon" [routerLink]="['/assignments']" [ngClass]="{'active' : nav == 'assignments'}"
